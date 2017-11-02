@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node ./bin/api server -p 9000"
+    "start": "nodemon --config ./config/dev/nodemon.json ./bin/api.js"
   },
   "repository": {
     "type": "git",
@@ -23,8 +23,7 @@
   "homepage": "https://github.com/arbitriume/server#readme",
   "dependencies": {
     "koa": "^2.3.0",
-    "mongodb": "^2.2.33",
-    "vorpal": "^1.12.0"
+    "mongodb": "^2.2.33"
   },
   "devDependencies": {
     "nodemon": "^1.12.1"
