@@ -1,3 +1,10 @@
 const app = require("../src/main/app");
+const { cellar, host, port } = require("../config/db/db.json");
 
-app({ port: 1337 });
+/**
+ * Start the application
+ */
+app({
+  port: 1337,
+  dbUrl: `http://${host}:${port}/${cellar}`
+});
