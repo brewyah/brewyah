@@ -1,0 +1,4 @@
+{
+    "base": "http://localhost:27017/",
+    "cellar": "d_cellar"
+}
