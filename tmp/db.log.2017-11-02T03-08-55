@@ -1,0 +1,14 @@
+2017-11-01T22:06:00.323-0500 I CONTROL  [initandlisten] MongoDB starting : pid=3050 port=27017 dbpath=/data/db 64-bit host=Da-JoshBook
+2017-11-01T22:06:00.323-0500 I CONTROL  [initandlisten] db version v3.2.11
+2017-11-01T22:06:00.323-0500 I CONTROL  [initandlisten] git version: 009580ad490190ba33d1c6253ebd8d91808923e4
+2017-11-01T22:06:00.323-0500 I CONTROL  [initandlisten] OpenSSL version: OpenSSL 1.0.2l  25 May 2017
+2017-11-01T22:06:00.323-0500 I CONTROL  [initandlisten] allocator: system
+2017-11-01T22:06:00.323-0500 I CONTROL  [initandlisten] modules: none
+2017-11-01T22:06:00.323-0500 I CONTROL  [initandlisten] build environment:
+2017-11-01T22:06:00.323-0500 I CONTROL  [initandlisten]     distarch: x86_64
+2017-11-01T22:06:00.323-0500 I CONTROL  [initandlisten]     target_arch: x86_64
+2017-11-01T22:06:00.323-0500 I CONTROL  [initandlisten] options: { processManagement: { fork: true }, systemLog: { destination: "file", path: "./tmp/db.log" } }
+2017-11-01T22:06:00.323-0500 E NETWORK  [initandlisten] listen(): bind() failed errno:48 Address already in use for socket: 0.0.0.0:27017
+2017-11-01T22:06:00.323-0500 E NETWORK  [initandlisten]   addr already in use
+2017-11-01T22:06:00.323-0500 E STORAGE  [initandlisten] Failed to set up sockets during startup.
+2017-11-01T22:06:00.324-0500 I CONTROL  [initandlisten] dbexit:  rc: 48

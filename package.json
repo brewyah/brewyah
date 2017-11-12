@@ -1,31 +1,33 @@
 {
-  "name": "server",
-  "version": "0.0.0",
-  "description": "Backend for beers project",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon --config ./config/dev/nodemon.json ./bin/api.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/arbitriume/server.git"
-  },
-  "keywords": [
-    "beer",
-    "brewery"
-  ],
-  "author": "Josh Cox",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/arbitriume/server/issues"
-  },
-  "homepage": "https://github.com/arbitriume/server#readme",
-  "dependencies": {
-    "koa": "^2.3.0",
-    "mongodb": "^2.2.33"
-  },
-  "devDependencies": {
-    "nodemon": "^1.12.1"
-  }
+    "name": "server",
+    "version": "0.0.0",
+    "description": "Backend for beers project",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "prestart": "mongod --fork --logpath ./tmp/db.log",
+        "start": "nodemon --config ./config/dev/nodemon.json ./bin/api.js",
+        "poststop": "mongo admin --eval 'db.shutdownServer()' > ./tmp/db.log"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/arbitriume/server.git"
+    },
+    "keywords": [
+        "beer",
+        "brewery"
+    ],
+    "author": "Josh Cox",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/arbitriume/server/issues"
+    },
+    "homepage": "https://github.com/arbitriume/server#readme",
+    "dependencies": {
+        "koa": "^2.3.0",
+        "mongodb": "^2.2.33"
+    },
+    "devDependencies": {
+        "nodemon": "^1.12.1"
+    }
 }

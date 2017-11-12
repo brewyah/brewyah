@@ -6,5 +6,5 @@ const { cellar, host, port } = require("../config/db/db.json");
  */
 app({
   port: 1337,
-  dbUrl: `http://${host}:${port}/${cellar}`
+  dbUrl: `mongodb://${host}:${port}/${cellar}`
 });
