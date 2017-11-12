@@ -25,6 +25,7 @@
     "homepage": "https://github.com/arbitriume/server#readme",
     "dependencies": {
         "koa": "^2.3.0",
+        "koa-logger": "^3.1.0",
         "mongodb": "^2.2.33"
     },
     "devDependencies": {

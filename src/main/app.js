@@ -10,21 +10,29 @@
  */
 const Koa = require("koa");
 
+const {
+    logging
+} = require("./middleware");
+
 module.exports = ({ port, dbUrl: url }) => {
-  /**
-   * @constant {external:MongoDb.Db} db
-   */
-  const db = require("./db/connect")({ url });
+    /**
+     * @constant {external:MongoDb.Db} db
+     */
+    const db = require("./db/connect")({ url });
 
-  /**
-   * @constant {Koa} app
-   */
-  const app = new Koa();
+    /**
+     * @constant {Koa} app
+     */
+    const app = new Koa();
 
-  app.use(async ctx => {
-    ctx.body = "Hello World";
-  });
+    logging({ app });
 
-  console.log(`Listening on port: ${port || 8000}`);
-  app.listen(port || 8000);
+    app.use(async ctx => {
+	ctx.body = "Hello World";
+    });
+
+    // Alert the world that we're listening on a certain port
+    console.log(`Listening on port: ${port || 8000}`);
+
+    app.listen(port || 8000);
 };
