@@ -1,0 +1,78 @@
+2017-11-12T15:32:25.340-0600 I CONTROL  [initandlisten] MongoDB starting : pid=2484 port=27017 dbpath=/data/db 64-bit host=Da-JoshBook
+2017-11-12T15:32:25.340-0600 I CONTROL  [initandlisten] db version v3.2.11
+2017-11-12T15:32:25.340-0600 I CONTROL  [initandlisten] git version: 009580ad490190ba33d1c6253ebd8d91808923e4
+2017-11-12T15:32:25.340-0600 I CONTROL  [initandlisten] OpenSSL version: OpenSSL 1.0.2l  25 May 2017
+2017-11-12T15:32:25.340-0600 I CONTROL  [initandlisten] allocator: system
+2017-11-12T15:32:25.340-0600 I CONTROL  [initandlisten] modules: none
+2017-11-12T15:32:25.340-0600 I CONTROL  [initandlisten] build environment:
+2017-11-12T15:32:25.340-0600 I CONTROL  [initandlisten]     distarch: x86_64
+2017-11-12T15:32:25.340-0600 I CONTROL  [initandlisten]     target_arch: x86_64
+2017-11-12T15:32:25.340-0600 I CONTROL  [initandlisten] options: { processManagement: { fork: true }, systemLog: { destination: "file", path: "./tmp/db.log" } }
+2017-11-12T15:32:25.343-0600 I -        [initandlisten] Detected data files in /data/db created by the 'wiredTiger' storage engine, so setting the active storage engine to 'wiredTiger'.
+2017-11-12T15:32:25.343-0600 W -        [initandlisten] Detected unclean shutdown - /data/db/mongod.lock is not empty.
+2017-11-12T15:32:25.343-0600 W STORAGE  [initandlisten] Recovering data from the last clean checkpoint.
+2017-11-12T15:32:25.344-0600 I STORAGE  [initandlisten] wiredtiger_open config: create,cache_size=4G,session_max=20000,eviction=(threads_max=4),config_base=false,statistics=(fast),log=(enabled=true,archive=true,path=journal,compressor=snappy),file_manager=(close_idle_time=100000),checkpoint=(wait=60,log_size=2GB),statistics_log=(wait=0),
+2017-11-12T15:32:26.667-0600 I NETWORK  [HostnameCanonicalizationWorker] Starting hostname canonicalization worker
+2017-11-12T15:32:26.672-0600 I FTDC     [initandlisten] Initializing full-time diagnostic data capture with directory '/data/db/diagnostic.data'
+2017-11-12T15:32:26.697-0600 I NETWORK  [initandlisten] waiting for connections on port 27017
+2017-11-12T15:32:27.012-0600 I FTDC     [ftdc] Unclean full-time diagnostic data capture shutdown detected, found interim file, some metrics may have been lost. OK
+2017-11-12T15:32:27.399-0600 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:49799 #1 (1 connection now open)
+2017-11-12T15:33:37.169-0600 I NETWORK  [conn1] end connection 127.0.0.1:49799 (0 connections now open)
+2017-11-12T15:33:37.385-0600 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:49801 #2 (1 connection now open)
+2017-11-12T15:34:27.152-0600 I NETWORK  [conn2] end connection 127.0.0.1:49801 (0 connections now open)
+2017-11-12T15:35:23.973-0600 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:49806 #3 (1 connection now open)
+2017-11-12T15:50:08.518-0600 I NETWORK  [conn3] end connection 127.0.0.1:49806 (0 connections now open)
+2017-11-12T15:50:08.786-0600 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:50077 #4 (1 connection now open)
+2017-11-12T15:50:15.235-0600 I NETWORK  [conn4] end connection 127.0.0.1:50077 (0 connections now open)
+2017-11-12T15:56:44.391-0600 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:50188 #5 (1 connection now open)
+2017-11-12T15:56:44.991-0600 I NETWORK  [conn5] end connection 127.0.0.1:50188 (0 connections now open)
+2017-11-12T15:56:45.218-0600 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:50189 #6 (1 connection now open)
+2017-11-12T16:02:22.947-0600 I NETWORK  [conn6] end connection 127.0.0.1:50189 (0 connections now open)
+2017-11-12T16:02:23.167-0600 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:50197 #7 (1 connection now open)
+2017-11-12T16:03:19.834-0600 I NETWORK  [conn7] end connection 127.0.0.1:50197 (0 connections now open)
+2017-11-12T16:03:20.051-0600 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:50199 #8 (1 connection now open)
+2017-11-12T16:07:11.874-0600 I NETWORK  [conn8] end connection 127.0.0.1:50199 (0 connections now open)
+2017-11-12T16:07:12.095-0600 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:50207 #9 (1 connection now open)
+2017-11-12T16:08:08.728-0600 I NETWORK  [conn9] end connection 127.0.0.1:50207 (0 connections now open)
+2017-11-12T16:08:31.954-0600 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:50216 #10 (1 connection now open)
+2017-11-12T16:21:46.696-0600 I NETWORK  [conn10] end connection 127.0.0.1:50216 (0 connections now open)
+2017-11-12T16:21:55.663-0600 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:50335 #11 (1 connection now open)
+2017-11-12T16:22:56.186-0600 I NETWORK  [conn11] end connection 127.0.0.1:50335 (0 connections now open)
+2017-11-12T16:22:56.446-0600 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:50339 #12 (1 connection now open)
+2017-11-12T16:27:19.167-0600 I NETWORK  [conn12] end connection 127.0.0.1:50339 (0 connections now open)
+2017-11-12T16:27:19.395-0600 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:50355 #13 (1 connection now open)
+2017-11-12T16:27:25.402-0600 I NETWORK  [conn13] end connection 127.0.0.1:50355 (0 connections now open)
+2017-11-12T16:27:25.646-0600 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:50356 #14 (1 connection now open)
+2017-11-12T16:27:56.891-0600 I NETWORK  [conn14] end connection 127.0.0.1:50356 (0 connections now open)
+2017-11-12T16:27:57.168-0600 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:50359 #15 (1 connection now open)
+2017-11-12T16:28:09.756-0600 I NETWORK  [conn15] end connection 127.0.0.1:50359 (0 connections now open)
+2017-11-12T16:28:10.000-0600 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:50362 #16 (1 connection now open)
+2017-11-12T16:37:51.282-0600 I NETWORK  [conn16] end connection 127.0.0.1:50362 (0 connections now open)
+2017-11-12T16:37:51.519-0600 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:50478 #17 (1 connection now open)
+2017-11-12T16:38:05.599-0600 I NETWORK  [conn17] end connection 127.0.0.1:50478 (0 connections now open)
+2017-11-12T16:38:05.834-0600 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:50482 #18 (1 connection now open)
+2017-11-12T16:38:33.817-0600 I NETWORK  [conn18] end connection 127.0.0.1:50482 (0 connections now open)
+2017-11-12T16:38:34.048-0600 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:50486 #19 (1 connection now open)
+2017-11-12T16:38:47.574-0600 I NETWORK  [conn19] end connection 127.0.0.1:50486 (0 connections now open)
+2017-11-12T16:38:47.844-0600 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:50489 #20 (1 connection now open)
+2017-11-12T16:39:31.692-0600 I NETWORK  [conn20] end connection 127.0.0.1:50489 (0 connections now open)
+2017-11-12T16:39:31.932-0600 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:50493 #21 (1 connection now open)
+2017-11-12T16:39:35.862-0600 I NETWORK  [conn21] end connection 127.0.0.1:50493 (0 connections now open)
+2017-11-12T16:39:36.116-0600 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:50494 #22 (1 connection now open)
+2017-11-12T16:44:59.025-0600 I NETWORK  [conn22] end connection 127.0.0.1:50494 (0 connections now open)
+2017-11-12T16:44:59.248-0600 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:50505 #23 (1 connection now open)
+2017-11-12T16:57:28.150-0600 I NETWORK  [conn23] end connection 127.0.0.1:50505 (0 connections now open)
+2017-11-12T16:57:28.375-0600 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:50540 #24 (1 connection now open)
+2017-11-12T17:02:15.552-0600 I NETWORK  [conn24] end connection 127.0.0.1:50540 (0 connections now open)
+2017-11-12T17:02:15.783-0600 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:50639 #25 (1 connection now open)
+2017-11-12T17:03:01.649-0600 I NETWORK  [conn25] end connection 127.0.0.1:50639 (0 connections now open)
+2017-11-12T17:03:01.870-0600 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:50640 #26 (1 connection now open)
+2017-11-12T17:16:59.603-0600 I NETWORK  [conn26] end connection 127.0.0.1:50640 (0 connections now open)
+2017-11-12T17:16:59.837-0600 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:50715 #27 (1 connection now open)
+2017-11-12T17:17:01.856-0600 I NETWORK  [conn27] end connection 127.0.0.1:50715 (0 connections now open)
+2017-11-12T17:17:02.094-0600 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:50716 #28 (1 connection now open)
+2017-11-12T17:17:02.595-0600 I NETWORK  [conn28] end connection 127.0.0.1:50716 (0 connections now open)
+2017-11-12T17:17:02.831-0600 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:50717 #29 (1 connection now open)
+2017-11-12T17:17:03.070-0600 I NETWORK  [conn29] end connection 127.0.0.1:50717 (0 connections now open)
+2017-11-12T17:17:03.360-0600 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:50718 #30 (1 connection now open)
+2017-11-12T17:17:18.413-0600 I NETWORK  [conn30] end connection 127.0.0.1:50718 (0 connections now open)

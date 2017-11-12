@@ -9,6 +9,7 @@
  * @alias external:Koa
  */
 const Koa = require("koa");
+const api = require("./api");
 
 const {
     logging
@@ -25,11 +26,11 @@ module.exports = ({ port, dbUrl: url }) => {
      */
     const app = new Koa();
 
+    // Add logging to the application
     logging({ app });
 
-    app.use(async ctx => {
-	ctx.body = "Hello World";
-    });
+    // Add the beer router
+    api({ app });
 
     // Alert the world that we're listening on a certain port
     console.log(`Listening on port: ${port || 8000}`);
