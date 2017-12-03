@@ -76,3 +76,4 @@
 2017-11-12T17:17:03.070-0600 I NETWORK  [conn29] end connection 127.0.0.1:50717 (0 connections now open)
 2017-11-12T17:17:03.360-0600 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:50718 #30 (1 connection now open)
 2017-11-12T17:17:18.413-0600 I NETWORK  [conn30] end connection 127.0.0.1:50718 (0 connections now open)
+2017-11-12T20:19:35.640-0600 W NETWORK  [HostnameCanonicalizationWorker] Failed to obtain address information for hostname Da-JoshBook: nodename nor servname provided, or not known

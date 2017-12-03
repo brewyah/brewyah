@@ -5,9 +5,13 @@
     "main": "index.js",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
-        "prestart": "mongod --fork --logpath ./tmp/db.log",
+        "db:clean": "node ./bin/db-clean.js",
+        "db:seed": "node ./bin/db-seed.js",
+        "db:start": "mongod --logpath ./tmp/db.log",
+        "db:stop": "mongo admin --eval 'db.shutdownServer()' > ./tmp/db.log",
+        "prestart": "npm run db:start --fork",
         "start": "nodemon --config ./config/dev/nodemon.json ./bin/api.js",
-        "poststop": "mongo admin --eval 'db.shutdownServer()' > ./tmp/db.log"
+        "poststop": "npm run db:stop"
     },
     "repository": {
         "type": "git",
