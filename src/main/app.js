@@ -5,7 +5,7 @@
  */
 
 /**
- * @class Koa
+ * @class module:brew/app~Koa
  * @alias external:Koa
  */
 const Koa = require("koa");
@@ -15,14 +15,20 @@ const {
     logging
 } = require("./middleware");
 
-module.exports = ({ port, dbUrl: url }) => {
+/**
+ * @function startApp
+ * @param {Number} port - The port on which the app will run
+ * @param {dbUrl} dbUrl - The url at which the database resides
+ * @returns {undefined}
+ */
+const startApp = ({ port, dbUrl }) => {
     /**
-     * @constant {external:MongoDb.Db} db
+     * @constant {external:MongoDb.Db} module:brew/app~db
      */
-    const db = require("./db/connect")({ url });
+    const db = require("./db/connect")({ url: dbUrl });
 
     /**
-     * @constant {Koa} app
+     * @constant {Koa} module:brew/app~app
      */
     const app = new Koa();
 
@@ -37,3 +43,8 @@ module.exports = ({ port, dbUrl: url }) => {
 
     app.listen(port || 8000);
 };
+
+/**
+ * @alias module:brew/app
+ */
+module.exports = startApp;

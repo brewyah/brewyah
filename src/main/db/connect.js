@@ -1,7 +1,5 @@
 /**
  * @module brew/db/connect
- * @external MongoDB
- * @see {@link http://mongodb.github.io/node-mongodb-native/2.2/api/index.html|MongoDB}
  */
 const mongodb = require("mongodb");
 const { logAndReject, logAndReturn } = require("../util/log");

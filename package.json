@@ -11,7 +11,8 @@
         "db:stop": "mongo admin --eval 'db.shutdownServer()' > ./tmp/db.log",
         "prestart": "npm run db:start --fork",
         "start": "nodemon --config ./config/dev/nodemon.json ./bin/api.js",
-        "poststop": "npm run db:stop"
+        "poststop": "npm run db:stop",
+        "docs:md": "node ./config/docs/jsdoc2md.js"
     },
     "repository": {
         "type": "git",
@@ -34,6 +35,11 @@
         "mongodb": "^2.2.33"
     },
     "devDependencies": {
+        "babel-plugin-transform-async-to-generator": "^6.24.1",
+        "babel-preset-es2015": "^6.24.1",
+        "jsdoc": "^3.5.5",
+        "jsdoc-babel": "^0.3.0",
+        "jsdoc-to-markdown": "^3.0.2",
         "nodemon": "^1.12.1"
     }
 }

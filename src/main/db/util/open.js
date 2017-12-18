@@ -1,5 +1,5 @@
 /**
- * @module brew/db/connect
+ * @module brew/db/open
  * @external MongoDB
  * @see {@link http://mongodb.github.io/node-mongodb-native/2.2/api/index.html|MongoDB}
  */
@@ -21,22 +21,37 @@ const MongoClient = mongodb.MongoClient;
 
 /**
  * Connect to a running {@link external:MongoDB} database instance
- * @function connect
+ * @function module:brew/db/open~connect
  * @param {String} url - The URL location of the {@link external:MongoDB} instance
  * @returns {Promise<Db, Error>}
  */
 const connect = ({ url }) => new Promise((resolve, reject) => MongoClient
-  .connect(url, (err, db) => err ? reject(err) : resolve(db)))
-  .then(db => logAndReturn(`Connected to DB at ${url}`, db))
-  .catch(logAndReject);
+    .connect(url, (err, db) => err ? reject(err) : resolve(db)))
+    .then(db => logAndReturn(`Connected to DB at ${url}`, db))
+    .catch(logAndReject);
 
+/**
+ * Creates the mongoDB url to connect to.
+ *
+ * @function module:brew/db/open~mongoDBUrl
+ * @param {String} host - the server
+ * @param {Number} port - the port
+ * @param {String} cellar - the name of the Beers database
+ * @returns {String}
+ */
+const mongoDBUrl = (host, port, cellar) => `mongodb://${host}:${port}/${cellar}`;
+
+/**
+ * @alias module:brew/db/open
+ */
 module.exports = async ({ host, port, cellar }) => {
-  try {
-    return await connect({
-      url: `mongodb://${host}:${port}/${cellar}`
-    });
-  } catch (e) {
-    console.log(e);
-    throw new Error(`Failed to connect to database at: ${`mongodb://${host}:${port}/${cellar}`}`);
-  }
+    const mongoDBUrl = mongoDBUrl(host, port, cellar);
+    try {
+        return await connect({ url: mongoDBUrl });
+    } catch (e) {
+        console.log(e);
+        throw new Error(
+            `Failed to connect to database at: ${mongoDBUrl}`
+        );
+    }
 };
