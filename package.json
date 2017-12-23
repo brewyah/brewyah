@@ -7,9 +7,9 @@
         "test": "echo \"Error: no test specified\" && exit 1",
         "db:clean": "node ./bin/db-clean.js",
         "db:seed": "node ./bin/db-seed.js",
-        "db:start": "mongod --logpath ./tmp/db.log",
+        "db:start": "mongod --fork --logpath ./tmp/db.log",
         "db:stop": "mongo admin --eval 'db.shutdownServer()' > ./tmp/db.log",
-        "prestart": "npm run db:start --fork",
+        "prestart": "npm run db:start",
         "start": "nodemon --config ./config/dev/nodemon.json ./bin/api.js",
         "poststop": "npm run db:stop",
         "docs:md": "node ./config/docs/jsdoc2md.js"

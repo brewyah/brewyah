@@ -44,8 +44,17 @@ module.exports = class Beers {
         return true;
     }
 
-    read() {
-
+    async read() {
+        try {
+            const collection = await this.getCollection();
+            return await new Promise((resolve, reject) =>
+                collection.find().toArray((err, beers) => err
+                    ? reject(err)
+                    : resolve(beers)))
+        } catch (e) {
+            console.log(e);
+            return false;
+        }
     }
 
     update() {

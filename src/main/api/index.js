@@ -1,17 +1,19 @@
 const Router = require("koa-router");
 const beers = require("./beers");
 
-module.exports = ({ app }) => {
+module.exports = ({ db }) => {
     console.log("Setting up API");
 
     const api = new Router({ prefix: "/api" });
 
+    const beersRouter = beers({ db });
+
     // Hook up the Beers API
-    api.use("/beers", beers.routes(), beers.allowedMethods());
+    api.use(
+        "/beers",
+        beersRouter.routes(),
+        beersRouter.allowedMethods()
+    );
 
-    // Hook up the api to the application
-    app.use(api.routes());
-
-    // Tell the app which methods are allowed
-    app.use(api.allowedMethods());
+    return api;
 };

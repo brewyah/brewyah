@@ -45,9 +45,9 @@ const mongoDBUrl = (host, port, cellar) => `mongodb://${host}:${port}/${cellar}`
  * @alias module:brew/db/open
  */
 module.exports = async ({ host, port, cellar }) => {
-    const mongoDBUrl = mongoDBUrl(host, port, cellar);
+    const url = mongoDBUrl(host, port, cellar);
     try {
-        return await connect({ url: mongoDBUrl });
+        return await connect({ url });
     } catch (e) {
         console.log(e);
         throw new Error(
