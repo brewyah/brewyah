@@ -1,24 +1,30 @@
 // Pull in the main app driver function
-const server = require("../../src/main/app")({
-    appPort: 1336,
-    db: {
-        host: "localhost",
-        port: 27017,
-        cellar: "test"
-    }
-});
+const startApp = require("../../src/main/app");
 
 // Pull in supertest
 const request = require("supertest");
 
-describe("routes: beers", () => {
-   afterEach(() => {
-       server.close();
-   });
+let server;
 
-   test("should respond as expected", async (done) => {
-       const response = await request(server).get("/");
-       expect(response.status).toEqual(200);
-       done();
-   });
+describe("routes: beers", () => {
+    beforeAll(async () => {
+        server = await startApp({
+            appPort: 1336,
+            db: {
+                host: "localhost",
+                port: 27017,
+                cellar: "d_cellar"
+            }
+        });
+    });
+
+    afterEach(() => {
+        server.close();
+    });
+
+    test("should respond as expected", async (done) => {
+        const response = await request(server).get("/api/beers");
+        expect(response.status).toEqual(200);
+        done();
+    });
 });

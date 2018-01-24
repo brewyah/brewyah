@@ -19,7 +19,7 @@ const { open } = require("./db/util");
  * @param {dbUrl} dbUrl - The url at which the database resides
  * @returns {undefined}
  */
-const startApp = ({ appPort, db: { host, port, cellar } }) => {
+const startApp = async ({ appPort, db: { host, port, cellar } }) => {
     /**
      * @constant {Koa} module:brew/app~app
      */
@@ -27,15 +27,15 @@ const startApp = ({ appPort, db: { host, port, cellar } }) => {
 
     app.use(logger());
 
-    open({ host, port, cellar })
-        .then(db => api({ db }))
-        .then(apiRouter => {
-            // Hook up the api to the application
-            app.use(apiRouter.routes());
+    const db = await open({ host, port, cellar });
 
-            // Tell the app which methods are allowed
-            app.use(apiRouter.allowedMethods());
-        });
+    const router = api({ db });
+
+    // Hook up the api to the application
+    app.use(router.routes());
+
+    // Tell the app which methods are allowed
+    app.use(router.allowedMethods());
 
     // Alert the world that we're listening on a certain port
     console.log(`Listening on port: ${appPort || 8000}`);
