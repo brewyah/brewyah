@@ -10,11 +10,8 @@
  */
 const Koa = require("koa");
 const api = require("./api");
+const logger = require("koa-logger");
 const { open } = require("./db/util");
-
-const {
-    logging
-} = require("./middleware");
 
 /**
  * @function startApp
@@ -22,33 +19,28 @@ const {
  * @param {dbUrl} dbUrl - The url at which the database resides
  * @returns {undefined}
  */
-const startApp = async ({ appPort, db: { host, port, cellar } }) => {
-    /**
-     * @constant {external:MongoDb.Db} module:brew/app~db
-     */
-    const db = await open({ host, port, cellar });
-
+const startApp = ({ appPort, db: { host, port, cellar } }) => {
     /**
      * @constant {Koa} module:brew/app~app
      */
     const app = new Koa();
 
-    // Add logging to the application
-    logging({ app });
+    app.use(logger());
 
-    // Add the beer router
-    const apiRouter = api({ db });
+    open({ host, port, cellar })
+        .then(db => api({ db }))
+        .then(apiRouter => {
+            // Hook up the api to the application
+            app.use(apiRouter.routes());
 
-    // Hook up the api to the application
-    app.use(apiRouter.routes());
-
-    // Tell the app which methods are allowed
-    app.use(apiRouter.allowedMethods());
+            // Tell the app which methods are allowed
+            app.use(apiRouter.allowedMethods());
+        });
 
     // Alert the world that we're listening on a certain port
     console.log(`Listening on port: ${appPort || 8000}`);
 
-    app.listen(appPort || 8000);
+    return app.listen(appPort || 8000);
 };
 
 /**

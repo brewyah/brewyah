@@ -1,7 +1,6 @@
 const dbConfig = require("../config/db/db");
 const { open } = require("../src/main/db/util");
 
-
 // Database entities
 const {
   db: {

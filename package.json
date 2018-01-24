@@ -3,15 +3,16 @@
     "version": "0.0.0",
     "description": "Backend for beers project",
     "main": "index.js",
+    "jest": {
+        "testEnvironment": "node"
+    },
     "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1",
+        "test": "jest",
         "db:clean": "node ./bin/db-clean.js",
         "db:seed": "node ./bin/db-seed.js",
-        "db:start": "mongod --fork --logpath ./tmp/db.log",
+        "db:start": "mongod --logpath ./tmp/db.log",
         "db:stop": "mongo admin --eval 'db.shutdownServer()' > ./tmp/db.log",
-        "prestart": "npm run db:start",
         "start": "nodemon --config ./config/dev/nodemon.json ./bin/api.js",
-        "poststop": "npm run db:stop",
         "docs:md": "node ./config/docs/jsdoc2md.js"
     },
     "repository": {
@@ -37,9 +38,11 @@
     "devDependencies": {
         "babel-plugin-transform-async-to-generator": "^6.24.1",
         "babel-preset-es2015": "^6.24.1",
+        "jest": "^22.0.6",
         "jsdoc": "^3.5.5",
         "jsdoc-babel": "^0.3.0",
         "jsdoc-to-markdown": "^3.0.2",
-        "nodemon": "^1.12.1"
+        "nodemon": "^1.12.1",
+        "supertest": "^3.0.0"
     }
 }
