@@ -1,10 +1,10 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import App from "braumeister";
+import Braumeister from "braumeister";
 
 class BrewYah extends React.Component {
     render(props) {
-        return (<App />)
+        return (<Braumeister />)
     }
 }
 
