@@ -1,6 +1,8 @@
 {
     "verbose": true,
-    "ignore": [],
+    "ignore": [
+        "./src/main/ui"
+    ],
     "execMap": {
         "js": "node"
     }

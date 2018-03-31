@@ -8,10 +8,14 @@
  * @class module:brew/app~Koa
  * @alias external:Koa
  */
+const path = require("path");
 const Koa = require("koa");
+const { createReadStream } = require('fs');
+const mount = require("koa-mount");
+const serve = require("koa-static");
 const api = require("./api");
 const logger = require("koa-logger");
-const { open } = require("./db/util");
+const {open} = require("./db/util");
 
 /**
  * @function startApp
@@ -19,7 +23,7 @@ const { open } = require("./db/util");
  * @param {dbUrl} dbUrl - The url at which the database resides
  * @returns {undefined}
  */
-const startApp = async ({ appPort, db: { host, port, cellar } }) => {
+const startApp = async ({appPort, db: {host, port, cellar}}) => {
     /**
      * @constant {Koa} module:brew/app~app
      */
@@ -27,15 +31,20 @@ const startApp = async ({ appPort, db: { host, port, cellar } }) => {
 
     app.use(logger());
 
-    const db = await open({ host, port, cellar });
+    // const db = await open({ host, port, cellar });
 
-    const router = api({ db });
+    // const router = api({ db });
 
     // Hook up the api to the application
-    app.use(router.routes());
+    // app.use(router.routes());
 
     // Tell the app which methods are allowed
-    app.use(router.allowedMethods());
+    // app.use(router.allowedMethods());
+
+    app.use(async (ctx, next) => {
+        ctx.type = 'html';
+        ctx.body = createReadStream(path.resolve(__dirname, "../../public/index.html"));
+    });
 
     // Alert the world that we're listening on a certain port
     console.log(`Listening on port: ${appPort || 8000}`);
