@@ -4,15 +4,13 @@ import {BrowserRouter, Switch, Route, Link} from 'react-router-dom';
 import Braumeister from "braumeister";
 import Taproom from "taproom";
 
-class BrewYah extends React.Component {
-    render(props) {
-        return (<BrowserRouter>
-            <Switch>
-                <Route exact path='/' component={Taproom}></Route>
-                <Route exact path='/admin' component={Braumeister}></Route>
-            </Switch>
-        </BrowserRouter>);
-    }
-}
+const BrewYah = () => (
+    <BrowserRouter>
+        <Switch>
+            <Route path='/admin' component={Braumeister}/>
+            <Route path='/' component={Taproom}/>
+        </Switch>
+    </BrowserRouter>
+);
 
 ReactDOM.render(<BrewYah/>, document.getElementById('brewyah'));
