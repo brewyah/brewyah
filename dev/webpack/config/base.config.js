@@ -1,7 +1,9 @@
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const path = require("path");
+const webpack = require("webpack");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
-module.exports = (...specs) => Object.assign({
+
+module.exports = {
     entry: [
         path.resolve(__dirname, "../../../src/main/ui/BrewYah.js")
     ],
@@ -9,11 +11,11 @@ module.exports = (...specs) => Object.assign({
         rules: [
             {
                 test: /\.(js|jsx)$/,
-                exclude: /(node_modules|bower_components)/,
+                exclude: /node_modules\/(?!(braumeister|taproom)\/).*/,
                 use: {
                     loader: 'babel-loader',
                     options: {
-                        presets: ['env','react', 'es2015']
+                        presets: ['env','es2015','react']
                     }
                 }
             },
@@ -26,9 +28,14 @@ module.exports = (...specs) => Object.assign({
             }
         ]
     },
+    plugins: [
+        new webpack.HotModuleReplacementPlugin(),
+        new MiniCssExtractPlugin({filename: "style.css"})
+    ],
+    devtool: "inline-source-map",
+    mode: "development",
     output: {
         filename: "brewyah.bundle.js",
         publicPath: "/dist"
-    },
-    mode: "production"
-}, ...specs);
+    }
+};
