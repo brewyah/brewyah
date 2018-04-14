@@ -37,8 +37,7 @@ module.exports = class Beers {
             const collection = await this.getCollection();
             await collection.insertMany(beers);
         } catch (e) {
-            console.log();
-            return false
+            return false;
         }
 
         return true;
@@ -50,7 +49,7 @@ module.exports = class Beers {
             return await new Promise((resolve, reject) =>
                 collection.find().toArray((err, beers) => err
                     ? reject(err)
-                    : resolve(beers)))
+                    : resolve(beers)));
         } catch (e) {
             console.log(e);
             return false;
