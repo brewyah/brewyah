@@ -2,7 +2,6 @@ const path = require("path");
 const webpack = require("webpack");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
-
 module.exports = {
     entry: [
         path.resolve(__dirname, "../../../src/main/ui/BrewYah.js")
@@ -15,7 +14,7 @@ module.exports = {
                 use: {
                     loader: 'babel-loader',
                     options: {
-                        presets: ['env','es2015','react']
+                        presets: ['env','react']
                     }
                 }
             },
