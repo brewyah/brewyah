@@ -7,6 +7,7 @@
         "testEnvironment": "node"
     },
     "scripts": {
+        "lint": "eslint ./src",
         "test": "jest",
         "db:clean": "node ./bin/db-clean.js",
         "db:seed": "node ./bin/db-seed.js",
@@ -62,6 +63,10 @@
         "style-loader": "^0.20.3",
         "supertest": "^3.0.0",
         "webpack-dev-server": "^3.1.1",
-        "webpack-serve": "^0.2.0"
+        "webpack-serve": "^0.2.0",
+        "eslint": "^4.19.1",
+        "eslint-plugin-react": "^7.7.0",
+        "eslint-plugin-react-html": "^1.0.0",
+        "eslint-plugin-brewyah": "git://github.com/brewyah/eslint-plugin-brewyah.git"
     }
 }

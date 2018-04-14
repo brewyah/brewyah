@@ -10,7 +10,7 @@
  */
 const path = require("path");
 const Koa = require("koa");
-const { createReadStream } = require('fs');
+const { createReadStream } = require("fs");
 const mount = require("koa-mount");
 const serve = require("koa-static");
 const api = require("./api");
@@ -42,7 +42,7 @@ const startApp = async ({appPort, db: {host, port, cellar}}) => {
     // app.use(router.allowedMethods());
 
     app.use(async (ctx, next) => {
-        ctx.type = 'html';
+        ctx.type = "html";
         ctx.body = createReadStream(path.resolve(__dirname, "../../public/index.html"));
     });
 

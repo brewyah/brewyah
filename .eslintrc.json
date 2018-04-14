@@ -1,0 +1,13 @@
+{
+    "env": {
+        "node": true
+    },
+    "parserOptions": {
+        "ecmaVersion": 8
+    },
+    "extends": "plugin:brewyah/recommended",
+    "plugins": ["brewyah"],
+    "rules": {
+        "no-console": "off"
+    }
+}

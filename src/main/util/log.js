@@ -11,8 +11,8 @@
  * @returns {*} value
  */
 exports.logAndReturn = (message, value) => {
-  console.log(message);
-  return value;
+    console.log(message);
+    return value;
 };
 
 /**
@@ -22,9 +22,9 @@ exports.logAndReturn = (message, value) => {
  * @returns {Promise<_, Error>}
  */
 exports.logAndReject = (err) => {
-  // Log out the error
-  console.log(err);
+    // Log out the error
+    console.log(err);
 
-  // Reject with the error
-  return Promise.reject(err);
+    // Reject with the error
+    return Promise.reject(err);
 };
