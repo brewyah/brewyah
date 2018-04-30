@@ -11,11 +11,11 @@
 const path = require("path");
 const Koa = require("koa");
 const { createReadStream } = require("fs");
+const mongo = require("koa-mongo");
 const mount = require("koa-mount");
 const serve = require("koa-static");
 const api = require("./api");
 const logger = require("koa-logger");
-const {open} = require("./db/util");
 
 /**
  * @function startApp
@@ -41,7 +41,16 @@ const startApp = async ({appPort, db: {host, port, cellar}}) => {
     // Tell the app which methods are allowed
     // app.use(router.allowedMethods());
 
+    app.use(mongo({
+        "host": "localhost",
+        "port": 27017,
+        "db": "d_cellar"
+    }));
+
+    app.use(api.routes());
+
     app.use(async (ctx, next) => {
+        console.log(ctx.mongo);
         ctx.type = "html";
         ctx.body = createReadStream(path.resolve(__dirname, "../../public/index.html"));
     });

@@ -1,19 +1,12 @@
 const Router = require("koa-router");
-const beers = require("./beers");
 
-module.exports = ({ db }) => {
-    console.log("Setting up API");
+const api = new Router({ prefix: "/api" });
 
-    const api = new Router({ prefix: "/api" });
+const userAPI = new Router({ prefix: "/user" });
 
-    const beersRouter = beers({ db });
+userAPI.get("/", async (ctx, next) => {
+    ctx.type = "json";
+    ctx.body = {"hello": "world"};
+});
 
-    // Hook up the Beers API
-    api.use(
-        "/beers",
-        beersRouter.routes(),
-        beersRouter.allowedMethods()
-    );
-
-    return api;
-};
+api.use(userAPI.routes());
