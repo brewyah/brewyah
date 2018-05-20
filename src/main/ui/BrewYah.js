@@ -2,8 +2,8 @@ import React from "react";
 import ReactDOM from "react-dom";
 import {BrowserRouter, Switch, Route} from "react-router-dom";
 import {CssBaseline} from "material-ui";
-import Braumeister from "braumeister";
-import Taproom from "taproom";
+import Braumeister from "./braumeister";
+import Taproom from "./taproom";
 
 const BrewYah = () => (
     <React.Fragment>

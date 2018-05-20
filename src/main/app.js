@@ -41,13 +41,13 @@ const startApp = async ({appPort, db: {host, port, cellar}}) => {
     // Tell the app which methods are allowed
     // app.use(router.allowedMethods());
 
-    app.use(mongo({
-        "host": "localhost",
-        "port": 27017,
-        "db": "d_cellar"
-    }));
+    // app.use(mongo({
+    //     "host": "localhost",
+    //     "port": 27017,
+    //     "db": "d_cellar"
+    // }));
 
-    app.use(api.routes());
+    // app.use(api.routes());
 
     app.use(async (ctx, next) => {
         console.log(ctx.mongo);
