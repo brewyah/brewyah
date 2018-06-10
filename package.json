@@ -54,6 +54,11 @@
         "babel-preset-env": "^1.6.1",
         "babel-preset-react": "^6.24.1",
         "css-loader": "^0.28.11",
+        "db-migrate": "^0.11.1",
+        "eslint": "^4.19.1",
+        "eslint-plugin-brewyah": "git://github.com/brewyah/eslint-plugin-brewyah.git",
+        "eslint-plugin-react": "^7.7.0",
+        "eslint-plugin-react-html": "^1.0.0",
         "jest": "^22.0.6",
         "jsdoc": "^3.5.5",
         "jsdoc-babel": "^0.3.0",
@@ -63,10 +68,6 @@
         "style-loader": "^0.20.3",
         "supertest": "^3.0.0",
         "webpack-dev-server": "^3.1.1",
-        "webpack-serve": "^0.2.0",
-        "eslint": "^4.19.1",
-        "eslint-plugin-react": "^7.7.0",
-        "eslint-plugin-react-html": "^1.0.0",
-        "eslint-plugin-brewyah": "git://github.com/brewyah/eslint-plugin-brewyah.git"
+        "webpack-serve": "^0.2.0"
     }
 }
