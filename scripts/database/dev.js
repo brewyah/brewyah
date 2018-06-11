@@ -48,10 +48,12 @@ const pipe = (...tasks) => tasks
  * 1. Drop the db configuration
  * 2. Create the db config
  */
-pipe(
+const taskList = [
     "db-migrate db:drop dev -v",
     "db-migrate db:create dev -v"
-)
+];
+
+pipe(...taskList)
     .then(() => (process.exitCode = 0))
     .catch((code) => (process.exitCode = code))
     .then(() => console.log(`Exiting with ${process.exitCode}`));
