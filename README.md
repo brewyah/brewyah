@@ -1,8 +1,9 @@
 # BrewYah
 The server that runs it all
 
-## First things first
+## Install independencies
 1. Run `npm install`
+1. Run `npm install -g db-migrate`
 
 ## Linking other local dev dependencies to the server
 1. `cd` to their folder (let's say `taproom`), then run `npm link`

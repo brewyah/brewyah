@@ -11,10 +11,6 @@
 const path = require("path");
 const Koa = require("koa");
 const { createReadStream } = require("fs");
-const mongo = require("koa-mongo");
-const mount = require("koa-mount");
-const serve = require("koa-static");
-const api = require("./api");
 const logger = require("koa-logger");
 
 /**
@@ -30,24 +26,6 @@ const startApp = async ({appPort, db: {host, port, cellar}}) => {
     const app = new Koa();
 
     app.use(logger());
-
-    // const db = await open({ host, port, cellar });
-
-    // const router = api({ db });
-
-    // Hook up the api to the application
-    // app.use(router.routes());
-
-    // Tell the app which methods are allowed
-    // app.use(router.allowedMethods());
-
-    // app.use(mongo({
-    //     "host": "localhost",
-    //     "port": 27017,
-    //     "db": "d_cellar"
-    // }));
-
-    // app.use(api.routes());
 
     app.use(async (ctx, next) => {
         console.log(ctx.mongo);
