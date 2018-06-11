@@ -1,0 +1,8 @@
+{
+    "defaultEnv": "dev",
+    "dev": {
+        "driver": "mongodb",
+        "database": "brewyah_test",
+        "host": "localhost"
+    }
+}

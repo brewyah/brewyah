@@ -9,13 +9,10 @@
     "scripts": {
         "lint": "eslint ./src",
         "test": "jest",
-        "db:clean": "node ./bin/db-clean.js",
-        "db:seed": "node ./bin/db-seed.js",
-        "db:start": "mongod --logpath ./tmp/db.log",
-        "db:stop": "mongo admin --eval 'db.shutdownServer()' > ./tmp/db.log",
         "start": "nodemon --config ./config/dev/nodemon.json ./bin/api.js",
         "start:debug": "node $NODE_DEBUG_OPTION ./bin/api.js",
-        "docs:md": "node ./config/docs/jsdoc2md.js"
+        "docs:md": "node ./config/docs/jsdoc2md.js",
+        "db:init": "node ./scripts/database/dev.js"
     },
     "repository": {
         "type": "git",
@@ -55,6 +52,7 @@
         "babel-preset-react": "^6.24.1",
         "css-loader": "^0.28.11",
         "db-migrate": "^0.11.1",
+        "db-migrate-mongodb": "^1.4.0",
         "eslint": "^4.19.1",
         "eslint-plugin-brewyah": "git://github.com/brewyah/eslint-plugin-brewyah.git",
         "eslint-plugin-react": "^7.7.0",
